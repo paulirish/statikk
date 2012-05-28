@@ -1,0 +1,15 @@
+{
+	"name": "static",
+	"description": "Simple static file server",
+	"author": "David Hong <davidhong.code@gmail.com>",
+	"version": "0.0.1",
+
+	"dependencies": {
+		"mime": ">=1.2.5"
+	},
+
+	"engines": {
+		"node": "0.6.x",
+		"npm": "1.0.x"
+	}
+}
