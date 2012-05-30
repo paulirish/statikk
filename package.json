@@ -1,12 +1,17 @@
 {
 	"name": "static",
-	"description": "Simple static file server",
+	"description": "Simple and fast static file server",
 	"author": "David Hong <davidhong.code@gmail.com>",
-	"version": "0.0.1",
+	"version": "1.0.0",
 
 	"dependencies": {
 		"mime": ">=1.2.5"
 	},
+
+	"publishConfig": { "tag": "1.0" },
+	"keywords": ["static", "file", "server", "cdn", "cache"],
+	"repository": "git://github.com/hongymagic/static",
+	"main": "index",
 
 	"engines": {
 		"node": "0.6.x",
