@@ -5,7 +5,12 @@
 	"version": "1.0.0",
 
 	"dependencies": {
-		"mime": ">=1.2.5"
+		"mime": ">= 1.2.5",
+		"nopt": ">= 0.0.1"
+	},
+
+	"devDependencies": {
+		"vows": ">= 0.0.1"
 	},
 
 	"publishConfig": { "tag": "1.0" },

@@ -40,7 +40,7 @@ var options = {
 };
 
 var static  = require('static');
-var server  = static.createServer(function (request, response) {
+var server  = static.createServer(options, function (request, response) {
 	"use strict";
 
 // Here we have access to request handler after `static` has processed it. Add
