@@ -39,6 +39,18 @@ server.listen();
 
 Your server will be running on `http://localhost:1203` server `/Users/hongy/magic/sites` directory.
 
+## What about the HTTP Headers?
+
+There are some default HTTP Headers that I am going to introduce for the reaons
+why I have create this package in the first place:
+
+1. Content-Type: static uses another internal Node.js package `mime` to check
+against content types
+2. Cache-Control: 'no-cache'. The primary purpose of static was so I could easily
+run a folder as web server over HTTP while I'm working on a new site. Might as
+well kill off the cache while I'm writing and debugging CSS and JavaScript. There
+will be an option to disable to default behaviour though.
+
 ## FAQ
 
 ### Why default to port 1203?
