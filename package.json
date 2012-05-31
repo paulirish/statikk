@@ -1,6 +1,6 @@
 {
-	"name": "static",
-	"description": "Simple static file server",
+	"name": "static-server",
+	"description": "Simple static file server – serve any directory over HTTP",
 	"url": "http://hongymagic.github.com/static",
 	"author": "David Hong <davidhong.code@gmail.com>",
 	"version": "1.0.0",
