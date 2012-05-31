@@ -15,7 +15,7 @@
 	},
 
 	"publishConfig": { "tag": "1.0" },
-	"keywords": ["static", "file", "server", "cdn", "cache"],
+	"keywords": ["static", "file", "server", "cdn", "developement"],
 	"repository": "git://github.com/hongymagic/static",
 	"main": "index",
 
