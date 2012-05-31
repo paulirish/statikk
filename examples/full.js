@@ -8,7 +8,9 @@
 var port = process.env.PORT || 3000;
 var options = {
 
-// Change which (root) folder to server over HTTP.
+// Change which (root) folder to server over HTTP. All paths are relative to
+// the execution path `__dirname`. If you wish to server a particular directory
+// use absolute path.
 
 	root: 'public',
 
@@ -32,16 +34,21 @@ var options = {
 // What to do incase of 500 or 404 (`static` doesn't support any other HTTP
 // status codes).
 
+// TODO: We work with slightly modified JSON pair (string: function)
+
 	errors: {
-		404: function (request, error) {},
-		500: function (request, error) {}
+		"404": function (request, error) {},
+		"500": function (request, error) {}
 	}
 
 };
 
-var static  = require('static');
+var static  = require('../index');
 var server  = static.createServer(options, function (request, response) {
 	"use strict";
+
+// Parameters are optional. Make sure you respect the order if you include
+// both.
 
 // Here we have access to request handler after `static` has processed it. Add
 // additional headers, change the content, do whatever you think is necessary.
