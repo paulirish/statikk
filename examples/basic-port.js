@@ -6,7 +6,7 @@
 //
 
 var static = require('../index');
-var server = static.createServer({ root: '/Users/davidhong/Sites' });
+var server = static.createServer();
 
 server.listen(3000);
 console.log("server online at http://localhost:3000/");
