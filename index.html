@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Statik by hongymagic</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Statik</h1>
+        <p>A simple and easy-to-use static file server written on Node.js.</p>
+        <p class="view"><a href="https://github.com/hongymagic/statik">View the Project on GitHub <small>hongymagic/statik</small></a></p>
+        <ul>
+          <li><a href="https://github.com/hongymagic/statik/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hongymagic/statik/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hongymagic/statik">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Statik</h1>
+
+<p>A simple and easy-to-use Node.js module to server static files over HTTP. It's
+super simple to use it.</p>
+
+<h2>Command line usage</h2>
+
+<div class="highlight">
+<pre><span class="nv">$ </span>npm install -g statik
+<span class="nv">$ </span><span class="nb">cd</span> ~/Sites
+<span class="nv">$ </span>statik
+</pre>
+</div>
+
+
+<p>Then head to <a href="http://localhost:1203/">http://localhost:1203/</a> to see the
+contents of <code>./public</code> served over HTTP.</p>
+
+<h3>Customise the default directory and port</h3>
+
+<div class="highlight">
+<pre>// Start server at http://localhost:3000 serving ./public
+<span class="nv">$ </span>static --port 3000
+
+// Start server at http://localhost:3000 serving ~/Sites/project
+<span class="nv">$ </span>statik --port 3000 ~/Sites/project
+</pre>
+</div>
+
+
+<h2>npm</h2>
+
+<div class="highlight">
+<pre><span class="c1">// package.json</span>
+<span class="c1">// ...</span>
+<span class="nx">dependencies</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"statik"</span><span class="o">:</span> <span class="s2">"&gt;= 1.1.0"</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<h2>Usage</h2>
+
+<div class="highlight">
+<pre><span class="c1">// app.js</span>
+<span class="kd">var</span> <span class="nx">statik</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'statik'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">statik</span><span class="p">.</span><span class="nx">createServer</span><span class="p">();</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>Your server will be running on <a href="http://localhost:3000/">http://localhost:3000/</a>
+serving <code>./public</code> directory.</p>
+
+<h2>Customisations</h2>
+
+<p>You can specify the directory you wish to serve as an argument.</p>
+
+<div class="highlight">
+<pre><span class="c1">// app.js</span>
+<span class="kd">var</span> <span class="nx">statik</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'statik'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">statik</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="s1">'/Users/hongymagic/Sites'</span><span class="p">);</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<p>Your server will be running on <a href="http://localhost:1203/">http://localhost:1203/</a>
+server <code>/Users/hongymagic/sites</code> directory.</p>
+
+<h2>Running it on heroku</h2>
+
+<div class="highlight">
+<pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'web: node app.js'</span> &gt; Procfile
+<span class="nv">$ </span>heroku create --stack cedar statik-app
+<span class="nv">$ </span>git push heroku master
+<span class="nv">$ </span>heroku open
+</pre>
+</div>
+
+
+<p>BAM!</p>
+
+<h2>FAQ</h2>
+
+<h3>Why?</h3>
+
+<blockquote>
+<p>Because I hate <code>file://</code> protocol for the reasons I wish not to disclose. One
+of the recent ones I've come across is <a href="http://help.typekit.com/customer/portal/articles/6857-using-typekit-while-developing-locally">Typekit</a>.
+And trust me there are other problems that pop-up if you're primarily working
+for the <code>http://</code> protocol.</p>
+</blockquote>
+
+<h3>What about the HTTP Headers?</h3>
+
+<blockquote>
+<p>There are some default HTTP Headers that I am going to introduce for the reaons
+why I have create this package in the first place:</p>
+
+<ol>
+<li>Content-Type: statik uses another internal Node.js package <code>mime</code> to check
+against content types</li>
+<li>Cache-Control: 'no-cache'. The primary purpose of statik was so I could easily
+run a folder as web server over HTTP while I'm working on a new site. Might as
+well kill off the cache while I'm writing and debugging CSS and JavaScript. There
+will be an option to disable to default behaviour though.</li>
+</ol>
+</blockquote>
+
+<h3>Why default to port 1203?</h3>
+
+<blockquote>
+<p>It's all personal.</p>
+</blockquote>
+
+<h3>How does statik treat root <code>/</code>?</h3>
+
+<blockquote>
+<p>For now, it will translate that into <code>index.html</code></p>
+</blockquote>
+
+<h2>TODO</h2>
+
+<ol>
+<li>Clean up code around 404 and 500 errors</li>
+<li>Options to add/remove default HTTP headers</li>
+<li>Default set of files instead of <code>index.html</code>
+</li>
+<li>Remove that <code>requestHandler</code> crap</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/hongymagic">hongymagic</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
