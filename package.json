@@ -3,7 +3,7 @@
 	"description": "Simple static file server – serve any directory over HTTP",
 	"url": "http://hongymagic.github.com/statik",
 	"author": "David Hong <davidhong.code@gmail.com>",
-	"version": "1.1.1",
+	"version": "1.1.2",
 
 	"dependencies": {
 		"mime": ">= 1.2.5",
