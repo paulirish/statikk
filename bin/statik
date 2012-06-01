@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+//
+// Fire up a standard `static` file server via command line
+//
+
+var path = require('path');
+var opts = {
+	"port": Number,
+	"root": path
+};
+var nopt    = require('nopt');
+var options = nopt(opts);
+var statik  = require('../index');
+var server  = statik.createServer(options.root);
+server.listen(options.port);
