@@ -11,10 +11,17 @@ $ cd ~/Sites
 $ statik
 ```
 
+Then head to http://localhost:1203/ to see the contents of `./public` served
+over HTTP.
+
 ### Customise the default directory and port
 
 ```bash
-$ statik --root ./mocks --port 3000
+// Start server at http://localhost:3000 serving ./public
+$ static --port 3000
+
+// Start server at http://localhost:3000 serving ~/Sites/project
+$ statik --port 3000 ~/Sites/project
 ```
 
 ## npm

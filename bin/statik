@@ -4,13 +4,16 @@
 // Fire up a standard `static` file server via command line
 //
 
-var path = require('path');
-var opts = {
-	"port": Number,
-	"root": path
+var debug = process.env.DEBUG_STATIC || process.env.STATIC_DEBUG
+            ? function () { console.log.apply(console, arguments) }
+            : function () {};
+var path  = require('path');
+var opts  = {
+	"port": Number
 };
 var nopt    = require('nopt');
 var options = nopt(opts);
+
 var statik  = require('../index');
-var server  = statik.createServer(options.root);
+var server  = statik.createServer(options.argv.remain[0]);
 server.listen(options.port);
