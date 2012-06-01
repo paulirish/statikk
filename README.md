@@ -3,15 +3,27 @@
 A simple and easy-to-use Node.js module to server static files over HTTP. It's
 super simple to use it.
 
-## npm
+## Command line usage
 
-*Submission to NPM repository pending*
+```bash
+$ npm install -g statik
+$ cd ~/Sites
+$ statik
+```
+
+### Customise the default directory and port
+
+```bash
+$ statik --root ./mocks --port 3000
+```
+
+## npm
 
 ```javascript
 // package.json
 // ...
 dependencies: {
-	"static": ">= 0.0.1"
+	"statik": ">= 1.1.0"
 }
 ```
 
@@ -19,8 +31,8 @@ dependencies: {
 
 ```javascript
 // app.js
-var static = require('static');
-var server = static.createServer();
+var statik = require('statik');
+var server = statik.createServer();
 server.listen(3000);
 ```
 
@@ -32,12 +44,12 @@ You can specify the directory you wish to serve as an argument.
 
 ```javascript
 // app.js
-var static = require('static');
-var server = static.createServer('/Users/hongymagic/Sites');
+var statik = require('statik');
+var server = statik.createServer('/Users/hongymagic/Sites');
 server.listen();
 ```
 
-Your server will be running on `http://localhost:1203` server `/Users/hongy/magic/sites` directory.
+Your server will be running on `http://localhost:1203` server `/Users/hongymagic/sites` directory.
 
 ## FAQ
 
@@ -46,9 +58,9 @@ Your server will be running on `http://localhost:1203` server `/Users/hongy/magi
 > There are some default HTTP Headers that I am going to introduce for the reaons
 why I have create this package in the first place:
 
-> 1. Content-Type: static uses another internal Node.js package `mime` to check
+> 1. Content-Type: statik uses another internal Node.js package `mime` to check
 against content types
-> 2. Cache-Control: 'no-cache'. The primary purpose of static was so I could easily
+> 2. Cache-Control: 'no-cache'. The primary purpose of statik was so I could easily
 run a folder as web server over HTTP while I'm working on a new site. Might as
 well kill off the cache while I'm writing and debugging CSS and JavaScript. There
 will be an option to disable to default behaviour though.
