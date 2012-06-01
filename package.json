@@ -1,26 +1,42 @@
 {
 	"name": "statik",
-	"description": "Simple static file server – serve any directory over HTTP",
-	"url": "http://hongymagic.github.com/statik",
-	"author": "David Hong <davidhong.code@gmail.com>",
 	"version": "1.1.2",
+
+	"description": "Simple static file server – serve any directory over HTTP",
+	"homepage": "https://hongymagic.github.com/statik",
+	"author": "David Hong <davidhong.code@gmail.com>",
+	"keywords": ["statik", "static", "file", "server", "cdn", "developement"],
+	"repository": "git://github.com/hongymagic/statik",
+
+	"bugs": {
+		"mail": "davidhong.code@gmail.com",
+		"url": "https://github.com/hongymagic/statik/issues"
+	},
 
 	"dependencies": {
 		"mime": ">= 1.2.5",
+		"q": ">= 0.8.5",
+		"q-fs": ">= 0.0.1",
 		"nopt": ">= 0.0.1"
 	},
-
 	"devDependencies": {
 		"vows": ">= 0.0.1"
 	},
 
-	"keywords": ["statik", "static", "file", "server", "cdn", "developement"],
-	"repository": "git://github.com/hongymagic/statik",
 	"main": "index",
-
 	"bin" : "./bin/statik",
 	"engines": {
 		"node": "0.x.x",
 		"npm": "1.x.x"
-	}
+	},
+
+	"scripts": {
+		"test": "make"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/hongymagic/statik/LICENSE"
+		}
+	]
 }
