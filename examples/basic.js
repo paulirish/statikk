@@ -5,8 +5,8 @@
 // port 1203 (default).
 //
 
-var static = require('../index');
-var server = static.createServer();
+var statik = require('../index');
+var server = statik.createServer();
 
 server.listen();
 console.log("server online at http://localhost:1203/");

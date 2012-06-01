@@ -1,7 +1,7 @@
 {
-	"name": "static-server",
+	"name": "statik",
 	"description": "Simple static file server – serve any directory over HTTP",
-	"url": "http://hongymagic.github.com/static",
+	"url": "http://hongymagic.github.com/statik",
 	"author": "David Hong <davidhong.code@gmail.com>",
 	"version": "1.0.0",
 
@@ -14,9 +14,8 @@
 		"vows": ">= 0.0.1"
 	},
 
-	"publishConfig": { "tag": "1.0" },
-	"keywords": ["static", "file", "server", "cdn", "developement"],
-	"repository": "git://github.com/hongymagic/static",
+	"keywords": ["statik", "static", "file", "server", "cdn", "developement"],
+	"repository": "git://github.com/hongymagic/statik",
 	"main": "index",
 
 	"engines": {
