@@ -51,6 +51,17 @@ server.listen();
 
 Your server will be running on `http://localhost:1203` server `/Users/hongymagic/sites` directory.
 
+## Running it on heroku
+
+```bash
+$ echo 'web: node app.js' > Procfile
+$ heroku create --stack cedar statik-app
+$ git push heroku master
+$ heroku open
+```
+
+BAM!
+
 ## FAQ
 
 ### What about the HTTP Headers?
