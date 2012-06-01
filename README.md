@@ -73,3 +73,9 @@ will be an option to disable to default behaviour though.
 ### How does statik treat root `/`?
 
 > For now, it will translate that into `index.html`
+
+## TODO
+
+1. Clean up code around 404 and 500 errors
+2. Options to add/remove default HTTP headers
+3. Default set of files instead of `index.html`
