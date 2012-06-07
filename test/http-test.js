@@ -13,7 +13,7 @@ server.listen(port);
 
 /* Simple test to get me over the line... */
 vows
-	.describe('Singly linked Node')
+	.describe('statik.createServer($port)')
 	.addBatch({
 		'new statik server instance': {
 			topic: server,
@@ -21,20 +21,6 @@ vows
 			'must be of Server instance': function (server) {
 				assert.ok(server instanceof statik.Server);
 			},
-		},
-
-		'package.json': {
-			topic: function () {
-				http.get({
-					"host": "localhost",
-					"port": port,
-					"path": "/package.json"
-				}, this.callback);
-			},
-
-			'server returns HTTP 200 OK': function (res, error) {
-				assert.equal(res.statusCode, 200);
-			}
 		}
 	})
 	.export(module);
