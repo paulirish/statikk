@@ -1,6 +1,6 @@
 {
 	"name": "statik",
-	"version": "1.1.4",
+	"version": "1.2.0",
 
 	"description": "Simple static file server – serve any directory over HTTP",
 	"homepage": "https://hongymagic.github.com/statik",
@@ -14,10 +14,8 @@
 	},
 
 	"dependencies": {
-		"mime": ">= 1.2.5",
-		"q": ">= 0.8.5",
-		"q-fs": ">= 0.0.1",
-		"nopt": ">= 0.0.1"
+		"nopt": "*",
+		"filed": "*"
 	},
 	"devDependencies": {
 		"vows": ">= 0.0.1"
