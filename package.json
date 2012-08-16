@@ -1,6 +1,6 @@
 {
 	"name": "statik",
-	"version": "1.2.4",
+	"version": "1.2.5",
 
 	"description": "Simple static file server – serve any directory over HTTP",
 	"homepage": "https://hongymagic.github.com/statik",
