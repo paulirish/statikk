@@ -11,7 +11,7 @@ $ cd ~/Sites
 $ statik
 ```
 
-Then head to [http://localhost:1203/](http://localhost:1203/) to see the
+Then head to [http://localhost:3000/](http://localhost:3000/) to see the
 contents of `./public` served over HTTP.
 
 ### Customise the default directory and port
@@ -57,7 +57,7 @@ var server = statik.createServer('/Users/hongymagic/Sites');
 server.listen();
 ```
 
-Your server will be running on [http://localhost:1203/](http://localhost:1203/)
+Your server will be running on [http://localhost:3000/](http://localhost:3000/)
 server `/Users/hongymagic/sites` directory.
 
 ## Running it on heroku
@@ -92,10 +92,6 @@ run a folder as web server over HTTP while I'm working on a new site. Might as
 well kill off the cache while I'm writing and debugging CSS and JavaScript. There
 will be an option to disable to default behaviour though.
 
-### Why default to port 1203?
-
-> It's all personal.
-
 ### How does statik treat root `/`?
 
 > For now, it will translate that into `index.html`
@@ -105,4 +101,3 @@ will be an option to disable to default behaviour though.
 1. Clean up code around 404 and 500 errors
 2. Options to add/remove default HTTP headers
 3. Default set of files instead of `index.html`
-4. Remove that `requestHandler` crap
