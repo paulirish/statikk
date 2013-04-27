@@ -6,7 +6,8 @@ var known = {
 	"port": Number,
 	"maxAge": Boolean,
 	"hidden": Boolean,
-	"redirect": Boolean
+	"redirect": Boolean,
+	"compress": Boolean
 };
 var options = nopt(known);
 if (options.argv.remain[0] !== undefined)
