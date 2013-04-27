@@ -1,19 +1,16 @@
 #!/usr/bin/env node
 
-//
-// Fire up a standard `static` file server via command line
-//
-
-var debug = process.env.DEBUG_STATIC || process.env.STATIC_DEBUG
-            ? function () { console.log.apply(console, arguments) }
-            : function () {};
-var path  = require('path');
-var opts  = {
-	"port": Number
+var nopt = require('nopt');
+var path = require('path');
+var known = {
+	"port": Number,
+	"maxAge": Boolean,
+	"hidden": Boolean,
+	"redirect": Boolean
 };
-var nopt    = require('nopt');
-var options = nopt(opts);
+var options = nopt(known);
+if (options.argv.remain[0] !== undefined)
+	options.root = path.resolve(options.argv.remain[0]);
 
-var statik  = require('../index');
-var server  = statik.createServer(options.argv.remain[0]);
-server.listen(options.port);
+var statik = require('../index');
+var server = statik(options);
