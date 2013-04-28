@@ -24,41 +24,47 @@ $ static --port 3000
 $ statik --port 3000 ~/Sites/project
 ```
 
-## npm
+### Other command line options
 
-```javascript
-// package.json
-// ...
-dependencies: {
-	"statik": ">= 1.1.0"
-}
+**maxAge**: browser cache maxAge in milliseconds. Defaults to 0
+**hidden**: allow transfer of hidden files. Defaults to false
+**redirect**: redirect to trailing "/" when pathname is directory. Defaults to true
+**compress**: enable gzip compression. Defaults to true
+
+## Use it programmatically
+
+```bash
+$ npm install statik --save
 ```
 
-## Usage
+### Usage
 
 ```javascript
 // app.js
 var statik = require('statik');
-var server = statik.createServer();
-server.listen(3000);
+statik(3000);
 ```
 
 Your server will be running on [http://localhost:3000/](http://localhost:3000/)
 serving `./public` directory.
 
-## Customisations
+### Customisations
 
 You can specify the directory you wish to serve as an argument.
 
 ```javascript
 // app.js
 var statik = require('statik');
-var server = statik.createServer('/Users/hongymagic/Sites');
-server.listen();
+statik({
+	port: 3000,
+	root: '/Users/hongymagic/Sites'
+});
 ```
 
 Your server will be running on [http://localhost:3000/](http://localhost:3000/)
 server `/Users/hongymagic/sites` directory.
+
+You can also use command line options when invoking `statik` function.
 
 ## Running it on heroku
 
