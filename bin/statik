@@ -1,5 +1,21 @@
 #!/usr/bin/env node
 
+var usage = [
+'HTTP all the things!',
+'',
+'Usage:',
+'  statik [options] [directory]',
+'  statik --help',
+'',
+'Options:',
+'  --help        Show this screen.',
+'  --port        Bind to a specific port. Defaults to 3000.',
+'  --compress    Enable gzip compression. Defaults to true.',
+'  --hidden      Allow hidden files to be served. Defaults to false.',
+'  --redirect    Redirect to trailing "/" when pathname is directory. Defaults to true.',
+'  --maxAge      Browser cache maxAge in milliseconds. Defaults to 0.'
+].join('\n');
+
 var nopt = require('nopt');
 var path = require('path');
 var known = {
@@ -7,9 +23,14 @@ var known = {
 	"maxAge": Boolean,
 	"hidden": Boolean,
 	"redirect": Boolean,
-	"compress": Boolean
+	"compress": Boolean,
+	"help": Boolean
 };
 var options = nopt(known);
+
+if (options.help)
+	return console.log(usage);
+
 if (options.argv.remain[0] !== undefined)
 	options.root = path.resolve(options.argv.remain[0]);
 
