@@ -21,7 +21,8 @@
     "extend": "~1.1.3",
     "nopt": "~2.1.1",
     "connect": "~2.7.6",
-    "connect-modrewrite": "~0.5.11"
+    "connect-modrewrite": "~0.5.11",
+    "connect-redirection": "0.0.1"
   },
   "devDependencies": {},
   "main": "index",
