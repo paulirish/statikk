@@ -18,9 +18,9 @@
     "url": "https://github.com/hongymagic/statik/issues"
   },
   "dependencies": {
-    "extend": "~1.1.3",
-    "nopt": "~2.1.1",
-    "connect": "~2.7.6",
+    "extend": "~1.2.1",
+    "nopt": "~2.1.2",
+    "connect": "~2.11.0",
     "connect-modrewrite": "~0.5.11",
     "connect-redirection": "0.0.1"
   },
