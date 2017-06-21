@@ -1,4 +1,4 @@
-# Statikk
+# Statikk [![NPM statikk package](https://img.shields.io/npm/v/statikk.svg)](https://npmjs.org/package/statikk)
 
 A simple and secure server for static files.
 
