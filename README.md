@@ -1,9 +1,11 @@
 # Statikk
 
-A simple and easy-to-use Node.js module to server static files over HTTP. It's
-super simple to use it.
+A simple and secure server for static files.
 
-Most notably, your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern)
+There are two smart security defaults set:
+
+1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern)
+1. The server isn't accessible outside of `localhost`. Other folks on your network won't be able to browse it via your internal IP.
 
 ## Command line usage
 
@@ -16,7 +18,14 @@ $ statikk
 Then head to [http://localhost:8080/](http://localhost:8080/) to see the
 contents of `./` served over HTTP.
 
-### Customise the default directory and port
+
+### Command line options
+
+* **hidden**: allow transfer of hidden files. Defaults to false
+* **expose**: expose server to hosts other than `localhost`. Defaults to false
+* **port**: custom port. Defaults to 8080
+
+### Examples
 
 ```bash
 // Start server at http://localhost:9000 serving ./
@@ -25,11 +34,3 @@ $ statikk --port 9000
 // Start server at http://localhost:8080 serving ~/Sites/project
 $ statikk --port 8080 ~/Sites/project
 ```
-
-### Other command line options
-
-* **maxAge**: browser cache maxAge in milliseconds. Defaults to 0
-* **hidden**: allow transfer of hidden files. Defaults to false
-* **redirect**: redirect to trailing "/" when pathname is directory. Defaults to true
-* **compress**: enable gzip compression. Defaults to true
-
