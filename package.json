@@ -1,8 +1,8 @@
 {
-  "name": "statik",
-  "version": "1.4.3",
-  "description": "Simple static file server – serve any directory over HTTP",
-  "homepage": "https://hongymagic.github.com/statik",
+  "name": "statikk",
+  "version": "1.0.0",
+  "description": "Simple, secure static file server – serve any directory over HTTP",
+  "homepage": "https://github.com/paulirish/statik/",
   "author": "David Hong <davidhong.code@gmail.com>",
   "keywords": [
     "statik",
@@ -12,10 +12,10 @@
     "cdn",
     "developement"
   ],
-  "repository": "https://github.com/limitingfactor/statik.git",
+  "repository": "https://github.com/paulirish/statik/",
   "bugs": {
     "mail": "davidhong.code@gmail.com",
-    "url": "https://github.com/hongymagic/statik/issues"
+    "url": "https://github.com/paulirish/statik/issues"
   },
   "dependencies": {
     "extend": "~1.2.1",
@@ -26,7 +26,9 @@
   },
   "devDependencies": {},
   "main": "index",
-  "bin": "./bin/statik",
+  "bin": {
+    "statikk": "./bin/statik"
+  },
   "engines": {
     "node": "0.x.x",
     "npm": "1.x.x"
