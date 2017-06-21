@@ -9,27 +9,27 @@ Most notably, your `.git` files are not exposed. (Whereas ALL other simple http 
 
 ```bash
 $ yarn global add statikk
-$ cd ~/Sites
-$ statik
+$ cd ~/Sites/fidgetspin.xyz
+$ statikk
 ```
 
-Then head to [http://localhost:3000/](http://localhost:3000/) to see the
-contents of `./public` served over HTTP.
+Then head to [http://localhost:8080/](http://localhost:8080/) to see the
+contents of `./` served over HTTP.
 
 ### Customise the default directory and port
 
 ```bash
-// Start server at http://localhost:3000 serving ./public
-$ statikk --port 3000
+// Start server at http://localhost:9000 serving ./
+$ statikk --port 9000
 
-// Start server at http://localhost:3000 serving ~/Sites/project
-$ statikk --port 3000 ~/Sites/project
+// Start server at http://localhost:8080 serving ~/Sites/project
+$ statikk --port 8080 ~/Sites/project
 ```
 
 ### Other command line options
 
-**maxAge**: browser cache maxAge in milliseconds. Defaults to 0
-**hidden**: allow transfer of hidden files. Defaults to false
-**redirect**: redirect to trailing "/" when pathname is directory. Defaults to true
-**compress**: enable gzip compression. Defaults to true
+* **maxAge**: browser cache maxAge in milliseconds. Defaults to 0
+* **hidden**: allow transfer of hidden files. Defaults to false
+* **redirect**: redirect to trailing "/" when pathname is directory. Defaults to true
+* **compress**: enable gzip compression. Defaults to true
 
