@@ -12,7 +12,6 @@ var usage = [
 '  --port        Bind to a specific port. Defaults to 8080.',
 '  --compress    Enable gzip compression. Defaults to true.',
 '  --hidden      Allow hidden files to be served. Defaults to false.',
-'  --redirect    Redirect to trailing "/" when pathname is directory. Defaults to true.',
 '  --maxAge      Browser cache maxAge in milliseconds. Defaults to 0.'
 ].join('\n');
 
@@ -22,7 +21,6 @@ var known = {
 	"port": Number,
 	"maxAge": Boolean,
 	"hidden": Boolean,
-	"redirect": Boolean,
 	"compress": Boolean,
 	"help": Boolean
 };
