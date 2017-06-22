@@ -1,6 +1,6 @@
 {
   "name": "statikk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple, secure static file server – serve any directory over HTTP",
   "homepage": "https://github.com/paulirish/statik/",
   "author": "David Hong <davidhong.code@gmail.com>",
@@ -18,9 +18,9 @@
     "url": "https://github.com/paulirish/statik/issues"
   },
   "dependencies": {
+    "connect": "~2.11.0",
     "extend": "~1.2.1",
-    "nopt": "~2.1.2",
-    "connect": "~2.11.0"
+    "nopt": "~2.1.2"
   },
   "devDependencies": {},
   "main": "index",
