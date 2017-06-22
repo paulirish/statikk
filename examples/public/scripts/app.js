@@ -1,1 +1,0 @@
-alert('And....... another confirmation!');
