@@ -34,3 +34,13 @@ $ statikk --port 9000
 // Start server at http://localhost:8080 serving ~/Sites/project
 $ statikk --port 8080 ~/Sites/project
 ```
+
+### History
+
+This project is a fork of...
+
+* https://github.com/boardman/statik which is a fork of
+* https://github.com/johnkelly/statik which is a fork of
+* https://github.com/hongymagic/statik (the OG `statik` on NPM) which hasn't been updated for 4 years.
+
+The original project doesn't correct exclude all hidden files, which is why I've forked and republished.  ~paul irish. june 2017.
