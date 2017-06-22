@@ -2,7 +2,7 @@
   "name": "statikk",
   "version": "1.0.1",
   "description": "Simple, secure static file server – serve any directory over HTTP",
-  "homepage": "https://github.com/paulirish/statik/",
+  "homepage": "https://github.com/paulirish/statikk/",
   "author": "David Hong <davidhong.code@gmail.com>",
   "keywords": [
     "statik",
@@ -12,10 +12,10 @@
     "cdn",
     "developement"
   ],
-  "repository": "https://github.com/paulirish/statik/",
+  "repository": "https://github.com/paulirish/statikk/",
   "bugs": {
     "mail": "davidhong.code@gmail.com",
-    "url": "https://github.com/paulirish/statik/issues"
+    "url": "https://github.com/paulirish/statikk/issues"
   },
   "dependencies": {
     "connect": "~2.11.0",
