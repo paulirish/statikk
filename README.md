@@ -4,7 +4,7 @@ A simple and secure server for static files.
 
 There are two smart security defaults set:
 
-1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern)
+1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern ([except `serve`](https://github.com/zeit/serve/issues/229)))
 1. The server isn't accessible outside of `localhost`. Other folks on your network won't be able to browse it via your internal IP.
 
 ## Command line usage
