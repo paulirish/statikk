@@ -18,9 +18,11 @@
     "url": "https://github.com/paulirish/statikk/issues"
   },
   "dependencies": {
-    "connect": "~2.11.0",
-    "extend": "~1.2.1",
-    "nopt": "~2.1.2"
+    "compression": "^1.7.3",
+    "connect": "~3.6.6",
+    "extend": "~3.0.2",
+    "nopt": "~4.0.1",
+    "serve-static": "^1.13.2"
   },
   "devDependencies": {},
   "main": "index",
