@@ -9,7 +9,7 @@ var usage = [
 '',
 'Options:',
 '  --help        Show this screen.',
-'  --port        Bind to a specific port. Defaults to 8080.',
+'  --port        Bind to a specific port. If not specified, it\'ll use a port automagically based on process.cwd().',
 '  --expose      Expose server outside of localhost. Defaults to false.',
 // '  --hidden      Allow hidden files to be served. Defaults to false.',
 // '  --compress    Enable gzip compression. Defaults to true.',

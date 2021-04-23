@@ -7,6 +7,8 @@ There are two smart security defaults set:
 1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern ([except `serve`](https://github.com/zeit/serve/issues/229)))
 1. The server isn't accessible outside of `localhost`. Other folks on your network won't be able to browse it via your internal IP.
 
+Also, if you don't specify a port it'll be deterministically generated based on your working directory. :tada:
+
 ## Command line usage
 
 ```bash
@@ -23,7 +25,7 @@ contents of `./` served over HTTP.
 
 * **hidden**: allow transfer of hidden files. Defaults to false
 * **expose**: expose server to hosts other than `localhost`. Defaults to false
-* **port**: custom port. Defaults to 8080
+* **port**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
 
 ### Examples
 
@@ -31,8 +33,8 @@ contents of `./` served over HTTP.
 // Start server at http://localhost:9000 serving ./
 $ statikk --port 9000
 
-// Start server at http://localhost:8080 serving ~/Sites/project
-$ statikk --port 8080 ~/Sites/project
+// Start server at http://localhost:60384 (perhaps) serving ~/Sites/project
+$ statikk ~/Sites/project
 ```
 
 ### History
@@ -43,4 +45,4 @@ This project is a fork of...
 * https://github.com/johnkelly/statik which is a fork of
 * https://github.com/hongymagic/statik (the OG `statik` on NPM) which hasn't been updated for 4 years.
 
-The original project doesn't correct exclude all hidden files, which is why I've forked and republished.  ~paul irish. june 2017.
+The original project doesn't correctly exclude all hidden files, which is why I've forked and republished.  ~paul irish. june 2017.
