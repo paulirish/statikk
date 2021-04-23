@@ -12,20 +12,19 @@ Also, if you don't specify a port it'll be deterministically generated based on 
 ## Command line usage
 
 ```bash
-$ yarn global add statikk
+$ npm install -g statikk
 $ cd ~/Sites/fidgetspin.xyz
 $ statikk
 ```
 
-Then head to [http://localhost:8080/](http://localhost:8080/) to see the
-contents of `./` served over HTTP.
-
+Then head to `http://localhost:XXXXX/` to see the contents of `./` served over HTTP.
 
 ### Command line options
 
 * **hidden**: allow transfer of hidden files. Defaults to false
 * **expose**: expose server to hosts other than `localhost`. Defaults to false
 * **port**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
+* **open**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
 
 ### Examples
 
@@ -35,6 +34,9 @@ $ statikk --port 9000
 
 // Start server at http://localhost:60384 (perhaps) serving ~/Sites/project
 $ statikk ~/Sites/project
+
+// Start server at a deterministically-chosen port based on the working directory, and open the browser
+$ statikk --open
 ```
 
 ### History

@@ -11,6 +11,7 @@ var usage = [
 '  --help        Show this screen.',
 '  --port        Bind to a specific port. If not specified, it\'ll use a port automagically based on process.cwd().',
 '  --expose      Expose server outside of localhost. Defaults to false.',
+'  --open        Open the hosted URL in your default browser. (Only supported on Mac OS!)',
 // '  --hidden      Allow hidden files to be served. Defaults to false.',
 // '  --compress    Enable gzip compression. Defaults to true.',
 // '  --maxAge      Browser cache maxAge in milliseconds. Defaults to 0.'
@@ -24,7 +25,8 @@ var known = {
 	// "hidden": Boolean,
 	"expose": Boolean,
 	// "compress": Boolean,
-	"help": Boolean
+	"help": Boolean,
+	"open": Boolean,
 };
 
 // note to future me: validation isn't stringent enough to be worth it. so skip it.
@@ -41,6 +43,3 @@ if (options.argv.remain[0] !== undefined)
 var statik = require('../index');
 var server = statik(options);
 const port = server.port;
-
-process.stderr.write(`http://localhost:${port}`);
-// process.stderr.write(`  🤓 Served by statikk!`);
