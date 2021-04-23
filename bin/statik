@@ -11,7 +11,7 @@ var usage = [
 '  --help        Show this screen.',
 '  --port        Bind to a specific port. Defaults to 8080.',
 '  --expose      Expose server outside of localhost. Defaults to false.',
-'  --hidden      Allow hidden files to be served. Defaults to false.',
+// '  --hidden      Allow hidden files to be served. Defaults to false.',
 // '  --compress    Enable gzip compression. Defaults to true.',
 // '  --maxAge      Browser cache maxAge in milliseconds. Defaults to 0.'
 ].join('\n');
@@ -21,11 +21,15 @@ var path = require('path');
 var known = {
 	"port": Number,
 	// "maxAge": Boolean,
-	"hidden": Boolean,
+	// "hidden": Boolean,
 	"expose": Boolean,
 	// "compress": Boolean,
 	"help": Boolean
 };
+
+// note to future me: validation isn't stringent enough to be worth it. so skip it.
+// nopt.invalidHandler = (key, val, types) => console.error('Invalid CLI flag value passed:', {key, val, types})
+
 var options = nopt(known);
 
 if (options.help)
