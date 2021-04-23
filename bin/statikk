@@ -40,3 +40,7 @@ if (options.argv.remain[0] !== undefined)
 
 var statik = require('../index');
 var server = statik(options);
+const port = server.port;
+
+process.stderr.write(`http://localhost:${port}`);
+// process.stderr.write(`  🤓 Served by statikk!`);
