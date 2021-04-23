@@ -1,6 +1,6 @@
 {
   "name": "statikk",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Simple, secure static file server – serve any directory over HTTP",
   "homepage": "https://github.com/paulirish/statikk/",
   "author": "David Hong <davidhong.code@gmail.com>, Paul Irish",
