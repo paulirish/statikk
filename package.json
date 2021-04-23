@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Simple, secure static file server – serve any directory over HTTP",
   "homepage": "https://github.com/paulirish/statikk/",
-  "author": "David Hong <davidhong.code@gmail.com>",
+  "author": "David Hong <davidhong.code@gmail.com>, Paul Irish",
   "keywords": [
     "statik",
     "static",
@@ -14,7 +14,6 @@
   ],
   "repository": "https://github.com/paulirish/statikk/",
   "bugs": {
-    "mail": "davidhong.code@gmail.com",
     "url": "https://github.com/paulirish/statikk/issues"
   },
   "dependencies": {
@@ -28,13 +27,6 @@
   "main": "index",
   "bin": {
     "statikk": "./bin/statikk"
-  },
-  "engines": {
-    "node": "0.x.x",
-    "npm": "1.x.x"
-  },
-  "scripts": {
-    "test": "grunt test"
   },
   "license": "MIT"
 }
