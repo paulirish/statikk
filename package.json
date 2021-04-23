@@ -27,7 +27,7 @@
   "devDependencies": {},
   "main": "index",
   "bin": {
-    "statikk": "./bin/statik"
+    "statikk": "./bin/statikk"
   },
   "engines": {
     "node": "0.x.x",
