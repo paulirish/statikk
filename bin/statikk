@@ -23,6 +23,7 @@ var known = {
 	"port": Number,
 	"expose": Boolean,
 	"cors": Boolean,
+	"coi": Boolean,
 	"help": Boolean,
 	"open": Boolean,
 };

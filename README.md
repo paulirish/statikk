@@ -21,11 +21,14 @@ Then head to `http://localhost:XXXXX/` to see the contents of `./` served over H
 
 ### Command line options
 
-* **hidden**: allow transfer of hidden files. Defaults to false
-* **expose**: expose server to hosts other than `localhost`. Defaults to false
+* **hidden**: allow transfer of hidden files. 
+* **expose**: expose server to hosts other than `localhost`.
 * **port**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
 * **open**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
-* **cors**: Add CORS headers
+* **cors**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
+* **coi**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
+
+All non-port options default to `false`.
 
 ### Examples
 
