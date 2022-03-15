@@ -21,10 +21,8 @@ var nopt = require('nopt');
 var path = require('path');
 var known = {
 	"port": Number,
-	// "maxAge": Boolean,
-	// "hidden": Boolean,
 	"expose": Boolean,
-	// "compress": Boolean,
+	"cors": Boolean,
 	"help": Boolean,
 	"open": Boolean,
 };

@@ -25,6 +25,7 @@ Then head to `http://localhost:XXXXX/` to see the contents of `./` served over H
 * **expose**: expose server to hosts other than `localhost`. Defaults to false
 * **port**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
 * **open**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
+* **cors**: Add CORS headers
 
 ### Examples
 
