@@ -22,7 +22,7 @@
     "cors": "^2.8.5",
     "extend": "~3.0.2",
     "nopt": "~5.0.0",
-    "serve-static": "^1.14.1"
+    "serve-static": "^1.14.2"
   },
   "devDependencies": {},
   "main": "index",
