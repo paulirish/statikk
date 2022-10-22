@@ -2,31 +2,33 @@
 
 A simple and secure server for static files.
 
-There are two smart security defaults set:
-
-1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern ([except `serve`](https://github.com/zeit/serve/issues/229)))
-1. The server isn't accessible outside of `localhost`. Other folks on your network won't be able to browse it via your internal IP.
-
-Also, if you don't specify a port it'll be deterministically generated based on your working directory. :tada:
+* Pithy flags for CORS and Cross-origin isolation.
+* Two smart security defaults:
+   1. Your `.git` files are not exposed. (Whereas ALL other simple http servers do expose this security concern ([except `serve`](https://github.com/zeit/serve/issues/229)))
+   1. The server isn't accessible outside of `localhost`. Other folks on your network won't be able to browse it via your internal IP.
+* If you don't specify a port, it'll be deterministically generated based on your working directory. :tada:
 
 ## Command line usage
 
 ```bash
 $ npm install -g statikk
-$ cd ~/Sites/fidgetspin.xyz
-$ statikk
-```
 
-Then head to `http://localhost:XXXXX/` to see the contents of `./` served over HTTP.
+$ cd ~/Sites/fidgetspin.xyz
+
+$ statikk --cors --open
+🤓 Served by statikk: http://localhost:10810
+```
 
 ### Command line options
 
-* **hidden**: allow transfer of hidden files. 
-* **expose**: expose server to hosts other than `localhost`.
-* **port**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
-* **open**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
-* **cors**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
-* **coi**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
+* **`--port NNNN`**: custom port. If not specified, it'll use a port *automagically* based on `process.cwd()`. (So different projects use different ports!)
+* **`--open`**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
+* **`--cors`**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
+* **`--coi`**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
+
+These two impair security:
+* **`--hidden`**: allow transfer of hidden files. 
+* **`--expose`**: expose server to hosts other than `localhost`.
 
 All non-port options default to `false`.
 
