@@ -40,5 +40,6 @@ if (options.argv.remain[0] !== undefined)
 	options.root = path.resolve(options.argv.remain[0]);
 
 var statik = require('../index');
-var server = statik(options);
-const port = server.port;
+statik(options).then((server) => {
+	console.log(`🤓 Served by statikk: ${server.url}`);
+});
