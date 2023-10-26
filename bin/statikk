@@ -24,6 +24,7 @@ var known = {
 	"expose": Boolean,
 	"cors": Boolean,
 	"coi": Boolean,
+	"jsprof": Boolean,
 	"help": Boolean,
 	"open": Boolean,
 };
