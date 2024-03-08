@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+'use strict';
+
+var path = require('node:path');
+var os = require('node:os');
+var nopt = require('nopt');
+var statik = require('../index');
 
 var usage = [
 'HTTP all the things!',
@@ -8,17 +14,16 @@ var usage = [
 '  statikk --help',
 '',
 'Options:',
-'  --help        Show this screen.',
-'  --port        Bind to a specific port. If not specified, it\'ll use a port automagically based on process.cwd().',
+'  --port NNNN   Use a specific port. If not specified, it\'ll use a port automagically based on process.cwd().',
 '  --expose      Expose server outside of localhost. Defaults to false.',
 '  --open        Open the hosted URL in your default browser. (Only supported on Mac OS!)',
-// '  --hidden      Allow hidden files to be served. Defaults to false.',
-// '  --compress    Enable gzip compression. Defaults to true.',
-// '  --maxAge      Browser cache maxAge in milliseconds. Defaults to 0.'
+
+'  --cors        Add CORS headers',
+'  --coi         Add cross-origin isolation headers',
+
+'  --help        Show this screen.',
 ].join('\n');
 
-var nopt = require('nopt');
-var path = require('path');
 var known = {
 	"port": Number,
 	"expose": Boolean,
@@ -32,15 +37,19 @@ var known = {
 // note to future me: validation isn't stringent enough to be worth it. so skip it.
 // nopt.invalidHandler = (key, val, types) => console.error('Invalid CLI flag value passed:', {key, val, types})
 
-var options = nopt(known);
+var opts = nopt(known);
 
-if (options.help)
+if (opts.help)
 	return console.log(usage);
 
-if (options.argv.remain[0] !== undefined)
-	options.root = path.resolve(options.argv.remain[0]);
+if (opts.argv.remain[0] !== undefined)
+	opts.root = path.resolve(opts.argv.remain[0]);
 
-var statik = require('../index');
-statik(options).then((server) => {
-	console.log(`🤓 Served by statikk: ${server.url}`);
+
+statik(opts).then(({url, options}) => {
+	const formattedPath = options.root.replace(os.homedir(), '~');
+	const reset = '\x1b[0m';
+	const boldWhite = '\x1b[1m\x1b[37m';
+	const dimWhite = '\x1b[2m\x1b[37m';
+	console.log(boldWhite, `🤓 ${url}`, reset, 'statikk serving up:', `${dimWhite}${formattedPath}`, reset);
 });

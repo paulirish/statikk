@@ -26,8 +26,7 @@ $ statikk --cors --open
 * **`--cors`**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
 * **`--coi`**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
 
-These two impair security:
-* **`--hidden`**: allow transfer of hidden files. 
+This weakens security:
 * **`--expose`**: expose server to hosts other than `localhost`.
 
 All non-port options default to `false`.
