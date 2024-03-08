@@ -6,13 +6,15 @@
   "author": "David Hong <davidhong.code@gmail.com>, Paul Irish",
   "keywords": [
     "statik",
+    "statikk",
     "static",
-    "file",
     "server",
-    "cdn",
     "developement"
   ],
-  "repository": "https://github.com/paulirish/statikk/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulirish/statikk.git"
+  },
   "bugs": {
     "url": "https://github.com/paulirish/statikk/issues"
   },
@@ -27,7 +29,7 @@
   "devDependencies": {},
   "main": "index",
   "bin": {
-    "statikk": "./bin/statikk"
+    "statikk": "bin/statikk"
   },
   "license": "MIT"
 }
