@@ -50,6 +50,6 @@ This project is a fork of...
 
 * https://github.com/boardman/statik which is a fork of
 * https://github.com/johnkelly/statik which is a fork of
-* https://github.com/hongymagic/statik (the OG `statik` on NPM) which hasn't been updated for 4 years.
+* https://github.com/hongymagic/statik (the OG `statik` on NPM), but unmaintained since 2013.
 
 The original project doesn't correctly exclude all hidden files, which is why I've forked and republished.  ~paul irish. june 2017.
