@@ -51,5 +51,5 @@ statik(opts).then(({url, options}) => {
 	const reset = '\x1b[0m';
 	const boldWhite = '\x1b[1m\x1b[37m';
 	const dimWhite = '\x1b[2m\x1b[37m';
-	console.log(boldWhite, `🤓 ${url}`, reset, 'statikk serving up:', `${dimWhite}${formattedPath}`, reset);
+	console.log(boldWhite, `🤓 ${url}`, reset, `statikk serving ${opts.expose ? 'up' : 'locally'}:`, `${dimWhite}${formattedPath}`, reset);
 });
