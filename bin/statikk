@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import path from 'node:path';
 import os from 'node:os';
 import { parseArgs } from 'node:util';
@@ -47,7 +49,6 @@ if (opts.help) {
 if (positionals[0] !== undefined) {
   opts.root = path.resolve(positionals[0]);
 }
-
 
 const { url, options } = await statik(opts);
 const formattedPath = options.root.replace(os.homedir(), '~');

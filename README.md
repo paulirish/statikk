@@ -10,13 +10,13 @@ A simple and secure server for static files.
 
 ## Command line usage
 
-```bash
+```sh
 $ npm install -g statikk
 
 $ cd ~/Sites/fidgetspin.xyz
 
 $ statikk --cors --open
-🤓 Served by statikk: http://localhost:10810
+ 🤓 http://localhost:10810  statikk serving locally: ~/Sites/fidgetspin.xyz
 ```
 
 ### Command line options
@@ -25,7 +25,7 @@ $ statikk --cors --open
 * **`--open`**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
 * **`--cors`**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
 * **`--coi`**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
-* **`--jsprof`**: Add `document-policy: js-profiling` header (useful for JS profiling)
+* **`--jsprof`**: Add `document-policy: js-profiling` header (for js self-profiling api)
 
 This weakens security:
 * **`--expose`**: expose server to hosts other than `localhost`.
