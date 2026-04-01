@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-import statik from '../lib/statik.js';
+import statikk from '../lib/statik.js';
 
 function createTempDir() {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'statikk-test-'));
@@ -16,7 +16,7 @@ test('statikk - serving files', async (t) => {
     const filePath = path.join(tmpDir, 'hello.txt');
     fs.writeFileSync(filePath, 'Hello World');
 
-    const { server, url } = await statik({ root: tmpDir });
+    const { server, url } = await statikk({ root: tmpDir });
 
     try {
       const res = await fetch(`${url}/hello.txt`);
@@ -31,7 +31,7 @@ test('statikk - serving files', async (t) => {
 
   await t.test('should return 404 for non-existent file', async () => {
     const tmpDir = createTempDir();
-    const { server, url } = await statik({ root: tmpDir });
+    const { server, url } = await statikk({ root: tmpDir });
 
     try {
       const res = await fetch(`${url}/not-found.txt`);
@@ -47,7 +47,7 @@ test('statikk - serving files', async (t) => {
     const indexPath = path.join(tmpDir, 'index.html');
     fs.writeFileSync(indexPath, '<h1>Index</h1>');
 
-    const { server, url } = await statik({ root: tmpDir });
+    const { server, url } = await statikk({ root: tmpDir });
 
     try {
       const res = await fetch(`${url}/`);
@@ -67,7 +67,7 @@ test('statikk - options', async (t) => {
     const filePath = path.join(tmpDir, 'hello.txt');
     fs.writeFileSync(filePath, 'Hello World');
 
-    const { server, url } = await statik({ root: tmpDir, cors: true });
+    const { server, url } = await statikk({ root: tmpDir, cors: true });
 
     try {
       const res = await fetch(`${url}/hello.txt`);
@@ -84,7 +84,7 @@ test('statikk - options', async (t) => {
     const filePath = path.join(tmpDir, 'hello.txt');
     fs.writeFileSync(filePath, 'Hello World');
 
-    const { server, url } = await statik({ root: tmpDir, coi: true });
+    const { server, url } = await statikk({ root: tmpDir, coi: true });
 
     try {
       const res = await fetch(`${url}/hello.txt`);
@@ -102,7 +102,7 @@ test('statikk - options', async (t) => {
     const filePath = path.join(tmpDir, 'hello.txt');
     fs.writeFileSync(filePath, 'Hello World');
 
-    const { server, url } = await statik({ root: tmpDir, jsprof: true });
+    const { server, url } = await statikk({ root: tmpDir, jsprof: true });
 
     try {
       const res = await fetch(`${url}/hello.txt`);

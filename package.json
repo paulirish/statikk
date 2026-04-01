@@ -5,11 +5,12 @@
   "homepage": "https://github.com/paulirish/statikk/",
   "author": "David Hong <davidhong.code@gmail.com>, Paul Irish",
   "keywords": [
-    "statik",
     "statikk",
+    "statik",
     "static",
     "server",
-    "developement"
+    "development",
+    "devserver"
   ],
   "repository": {
     "type": "git",
