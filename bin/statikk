@@ -1,10 +1,7 @@
-#!/usr/bin/env node
-'use strict';
-
-var path = require('node:path');
-var os = require('node:os');
-var nopt = require('nopt');
-var statik = require('../index');
+import path from 'node:path';
+import os from 'node:os';
+import { parseArgs } from 'node:util';
+import statik from '../index.js';
 
 var usage = [
 'HTTP all the things!',
@@ -24,32 +21,37 @@ var usage = [
 '  --help        Show this screen.',
 ].join('\n');
 
-var known = {
-	"port": Number,
-	"expose": Boolean,
-	"cors": Boolean,
-	"coi": Boolean,
-	"jsprof": Boolean,
-	"help": Boolean,
-	"open": Boolean,
+const optionConfig = {
+  port: { type: 'string' },
+  expose: { type: 'boolean' },
+  cors: { type: 'boolean' },
+  coi: { type: 'boolean' },
+  jsprof: { type: 'boolean' },
+  help: { type: 'boolean' },
+  open: { type: 'boolean' },
 };
 
-// note to future me: validation isn't stringent enough to be worth it. so skip it.
-// nopt.invalidHandler = (key, val, types) => console.error('Invalid CLI flag value passed:', {key, val, types})
-
-var opts = nopt(known);
-
-if (opts.help)
-	return console.log(usage);
-
-if (opts.argv.remain[0] !== undefined)
-	opts.root = path.resolve(opts.argv.remain[0]);
-
-
-statik(opts).then(({url, options}) => {
-	const formattedPath = options.root.replace(os.homedir(), '~');
-	const reset = '\x1b[0m';
-	const boldWhite = '\x1b[1m\x1b[37m';
-	const dimWhite = '\x1b[2m\x1b[37m';
-	console.log(boldWhite, `🤓 ${url}`, reset, `statikk serving ${opts.expose ? 'up' : 'locally'}:`, `${dimWhite}${formattedPath}`, reset);
+const { values, positionals } = parseArgs({
+  options: optionConfig,
+  allowPositionals: true,
 });
+
+const opts = { ...values };
+if (opts.port) opts.port = Number(opts.port);
+
+if (opts.help) {
+  console.log(usage);
+  process.exit(0);
+}
+
+if (positionals[0] !== undefined) {
+  opts.root = path.resolve(positionals[0]);
+}
+
+
+const { url, options } = await statik(opts);
+const formattedPath = options.root.replace(os.homedir(), '~');
+const reset = '\x1b[0m';
+const boldWhite = '\x1b[1m\x1b[37m';
+const dimWhite = '\x1b[2m\x1b[37m';
+console.log(boldWhite, `🤓 ${url}`, reset, `statikk serving ${opts.expose ? 'up' : 'locally'}:`, `${dimWhite}${formattedPath}`, reset);

@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/paulirish/statikk.git"
   },
+  "type": "module",
   "bugs": {
     "url": "https://github.com/paulirish/statikk/issues"
   },
@@ -25,8 +26,6 @@
     "compression": "^1.7.4",
     "connect": "~3.7.0",
     "cors": "^2.8.5",
-    "extend": "~3.0.2",
-    "nopt": "~5.0.0",
     "serve-static": "^1.14.2"
   },
   "devDependencies": {},

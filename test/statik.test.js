@@ -1,9 +1,9 @@
-const test = require('node:test');
-const assert = require('node:assert');
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
-const statik = require('../lib/statik.js');
+import test from 'node:test';
+import assert from 'node:assert';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import statik from '../lib/statik.js';
 
 function createTempDir() {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'statikk-test-'));

@@ -1,1 +1,1 @@
-module.exports = require('./lib/statik.js');
+export { default } from './lib/statik.js';
