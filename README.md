@@ -25,6 +25,7 @@ $ statikk --cors --open
 * **`--open`**: Open the hosted URL in your default browser. (Only supported on Mac OS!)
 * **`--cors`**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
 * **`--coi`**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
+* **`--jsprof`**: Add `document-policy: js-profiling` header (useful for JS profiling)
 
 This weakens security:
 * **`--expose`**: expose server to hosts other than `localhost`.
