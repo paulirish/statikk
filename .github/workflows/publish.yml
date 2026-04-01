@@ -1,0 +1,36 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on version tags (e.g., v3.0.0)
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read  # Required for checkout
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: pnpm/action-setup@v3
+      with:
+        version: 10
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.14.0 # Required for Trusted Publishing
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Publish to npm
+      run: |
+        npm install -g npm@latest
+        npm publish --provenance --access public --registry https://registry.npmjs.org/
