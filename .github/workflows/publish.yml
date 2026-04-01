@@ -30,6 +30,12 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
+    - name: Run Typecheck
+      run: pnpm run typecheck
+
+    - name: Run Tests
+      run: pnpm test
+
     - name: Publish to npm
       run: |
         npm install -g npm@latest
