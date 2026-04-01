@@ -13,6 +13,7 @@ function createTempDir() {
   return tmpDir;
 }
 
+/** @param {string[]} args */
 function runCliExiting(args) {
   return new Promise((resolve, reject) => {
     const child = spawn(process.execPath, [path.join(__dirname, '../bin/statikk'), ...args]);
@@ -27,6 +28,7 @@ function runCliExiting(args) {
   });
 }
 
+/** @param {string[]} args */
 function startCliServing(args) {
   return new Promise((resolve, reject) => {
     const child = spawn(process.execPath, [path.join(__dirname, '../bin/statikk'), ...args]);
@@ -44,7 +46,7 @@ function startCliServing(args) {
     child.stdout.on('data', (data) => {
       const chunk = data.toString();
       stdout += chunk;
-      
+
       // Look for the URL in the output
       const match = stdout.match(/(http:\/\/localhost:\d+)/);
       if (match && !resolved) {

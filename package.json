@@ -20,7 +20,8 @@
     "url": "https://github.com/paulirish/statikk/issues"
   },
   "scripts": {
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -35,5 +36,13 @@
   "bin": {
     "statikk": "bin/statikk"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/connect": "^3.4.38",
+    "@types/cors": "^2.8.19",
+    "@types/node": "^25.5.0",
+    "@types/serve-static": "^2.2.0",
+    "typescript": "^6.0.2"
+  }
 }
