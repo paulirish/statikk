@@ -21,8 +21,10 @@
     "url": "https://github.com/paulirish/statikk/issues"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "test": "node --test test/*.test.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -30,7 +32,17 @@
     "cors": "^2.8.5",
     "serve-static": "^2.2.1"
   },
-  "exports": "./index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    "types": "./types/index.d.ts",
+    "default": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "bin",
+    "lib",
+    "types"
+  ],
   "engines": {
     "node": ">=18"
   },
