@@ -23,7 +23,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 22.14.0 # Required for Trusted Publishing
+        node-version: lts/* # 22.14.0 is required for Trusted Publishing
         registry-url: 'https://registry.npmjs.org'
         cache: 'pnpm'
 
@@ -38,5 +38,4 @@ jobs:
 
     - name: Publish to npm
       run: |
-        npm install -g npm@latest
         npm publish --provenance --access public --registry https://registry.npmjs.org/
