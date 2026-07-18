@@ -123,3 +123,22 @@ test('CLI - with options', async (t) => {
     fs.rmdirSync(tmpDir);
   }
 });
+
+test('CLI - with csp option', async (t) => {
+  const tmpDir = createTempDir();
+  const filePath = path.join(tmpDir, 'hello.txt');
+  fs.writeFileSync(filePath, 'Hello CSP');
+
+  const { child, url } = await startCliServing(['--csp', "require-trusted-types-for 'script'; trusted-types 'none';", tmpDir]);
+
+  try {
+    const res = await fetch(`${url}/hello.txt`);
+    assert.strictEqual(res.status, 200);
+    assert.strictEqual(res.headers.get('content-security-policy'), "require-trusted-types-for 'script'; trusted-types 'none';");
+  } finally {
+    child.kill();
+    await new Promise(r => setTimeout(r, 100));
+    fs.unlinkSync(filePath);
+    fs.rmdirSync(tmpDir);
+  }
+});

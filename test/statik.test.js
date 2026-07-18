@@ -113,4 +113,21 @@ test('statikk - options', async (t) => {
       fs.rmdirSync(tmpDir);
     }
   });
+
+  await t.test('should add CSP header when csp enabled', async () => {
+    const tmpDir = createTempDir();
+    const filePath = path.join(tmpDir, 'hello.txt');
+    fs.writeFileSync(filePath, 'Hello World');
+
+    const { server, url } = await statikk({ root: tmpDir, csp: "require-trusted-types-for 'script'; trusted-types 'none';" });
+
+    try {
+      const res = await fetch(`${url}/hello.txt`);
+      assert.strictEqual(res.headers.get('content-security-policy'), "require-trusted-types-for 'script'; trusted-types 'none';");
+    } finally {
+      server.close();
+      fs.unlinkSync(filePath);
+      fs.rmdirSync(tmpDir);
+    }
+  });
 });

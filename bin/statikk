@@ -16,6 +16,7 @@ var usage = [
 '  --port NNNN   Use a specific port. If not specified, it\'ll use a port automagically based on process.cwd().',
 '  --expose      Expose server outside of localhost. Defaults to false.',
 '  --open        Open the hosted URL in your default browser. (Only supported on Mac OS!)',
+'  --csp VAL     Add Content-Security-Policy header with value VAL',
 
 '  --cors        Add CORS headers',
 '  --coi         Add cross-origin isolation headers',
@@ -29,6 +30,7 @@ const optionConfig = {
   cors: { type: 'boolean' },
   coi: { type: 'boolean' },
   jsprof: { type: 'boolean' },
+  csp: { type: 'string' },
   help: { type: 'boolean' },
   open: { type: 'boolean' },
 };
