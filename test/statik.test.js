@@ -177,4 +177,17 @@ test('statikk - port collision handling', async (t) => {
       fs.rmdirSync(tmpDir);
     }
   });
+
+  await t.test('should support port 0 to bind to a random free port', async () => {
+    const tmpDir = createTempDir();
+    const { server, options } = await statikk({ root: tmpDir, port: 0 });
+
+    try {
+      assert.ok(typeof options.port === 'number');
+      assert.ok(options.port > 0);
+    } finally {
+      server.close();
+      fs.rmdirSync(tmpDir);
+    }
+  });
 });
