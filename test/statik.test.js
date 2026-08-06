@@ -131,3 +131,50 @@ test('statikk - options', async (t) => {
     }
   });
 });
+
+test('statikk - port collision handling', async (t) => {
+  await t.test('should fail if explicit port is already in use', async () => {
+    const tmpDir1 = createTempDir();
+    const tmpDir2 = createTempDir();
+
+    // Start first server on explicit port 8888
+    const { server: server1 } = await statikk({ root: tmpDir1, port: 8888 });
+
+    try {
+      // Attempting to start second server on same explicit port 8888 should reject
+      await assert.rejects(
+        statikk({ root: tmpDir2, port: 8888 }),
+        (/** @type {any} */ err) => {
+          assert.strictEqual(err.code, 'EADDRINUSE');
+          return true;
+        }
+      );
+    } finally {
+      server1.close();
+      fs.rmdirSync(tmpDir1);
+      fs.rmdirSync(tmpDir2);
+    }
+  });
+
+  await t.test('should increment port if automagic port is already in use', async () => {
+    const tmpDir = createTempDir();
+
+    // Start first server (calculates and binds to automagic port)
+    const { server: server1, options: options1 } = await statikk({ root: tmpDir });
+    const basePort = options1.port;
+    if (typeof basePort !== 'number') {
+      throw new Error('Expected basePort to be a number');
+    }
+
+    // Start second server serving the same directory (same automagic port)
+    const { server: server2, options: options2 } = await statikk({ root: tmpDir });
+
+    try {
+      assert.strictEqual(options2.port, basePort + 1);
+    } finally {
+      server1.close();
+      server2.close();
+      fs.rmdirSync(tmpDir);
+    }
+  });
+});
