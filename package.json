@@ -24,7 +24,8 @@
     "build": "tsc -p tsconfig.build.json",
     "test": "node --test test/*.test.js",
     "typecheck": "tsc --noEmit",
-    "prepare": "tsc -p tsconfig.build.json"
+    "prepare": "tsc -p tsconfig.build.json",
+    "preflight": "pnpm run typecheck && pnpm run test"
   },
   "dependencies": {
     "compression": "^1.7.4",
