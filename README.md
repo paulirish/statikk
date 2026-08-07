@@ -26,11 +26,12 @@ $ statikk --cors --open
 * **`--cors`**: Add [CORS](https://web.dev/cross-origin-resource-sharing/) headers
 * **`--coi`**: Add [cross-origin isolation](https://web.dev/cross-origin-isolation-guide/) headers ([more](https://web.dev/coop-coep/))
 * **`--jsprof`**: Add `document-policy: js-profiling` header (for js self-profiling api)
+* **`--csp VAL`**: Add a [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) header with value `VAL`
 
 This weakens security:
 * **`--expose`**: expose server to hosts other than `localhost`.
 
-All non-port options default to `false`.
+All non-port options default to `false` (except `--csp` which is undefined by default).
 
 ### Examples
 
@@ -44,6 +45,39 @@ $ statikk ~/Sites/project
 // Start server at a deterministically-chosen port based on the working directory, and open the browser
 $ statikk --open
 ```
+## Programmatic ESM usage
+
+```js
+import statikk from 'statikk';
+
+const { app, server, options, url } = await statikk({
+  root: './public', // Defaults to process.cwd()
+  port: 3000,       // Defaults to a deterministic port based on root
+  cors: true,
+  coi: true,
+  csp: "default-src 'self'",
+  open: true,       // Open browser on macOS
+});
+
+// To stop the server:
+// server.close();
+```
+
+### Options
+
+`statikk` accepts an options object:
+
+* **`root`**: The directory to serve. Defaults to `process.cwd()`.
+* **`port`**: The port to listen on. If not specified or `0`, it will use a port based on `root`.
+* **`cors`**: Boolean, add CORS headers. Defaults to `false`.
+* **`coi`**: Boolean, add Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy headers. Defaults to `false`.
+* **`jsprof`**: Boolean, add `document-policy: js-profiling` header. Defaults to `false`.
+* **`csp`**: String, value for `Content-Security-Policy` header. Defaults to `undefined`.
+* **`open`**: Boolean, open browser on server start (only supported on macOS). Defaults to `false`.
+* **`compress`**: Boolean, enable gzip compression. Defaults to `true`.
+* **`expose`**: Boolean, allow access from other hosts on the network (listens on `0.0.0.0` instead of `localhost`). Defaults to `false`.
+
+Additionally, any options accepted by [serve-static](https://github.com/expressjs/serve-static) can be passed, such as `maxAge`, `dotfiles`, etc.
 
 ### History
 
